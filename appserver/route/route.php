@@ -15,6 +15,9 @@ Route::get('think', function () {
 
 Route::get('hello/:name', 'index/hello');
 
+Route::get('api/:ver/test', 'api/:ver.Test/index');
+
+
 return [
 
 ];
