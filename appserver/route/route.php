@@ -17,6 +17,8 @@ Route::get('hello/:name', 'index/hello');
 
 Route::get('api/:ver/test', 'api/:ver.Test/index');
 
+Route::get('api/:ver/banner/:id', 'api/:ver.Banner/getBanner');
+
 
 return [
 

@@ -10,3 +10,20 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+function api_json($code, $message, $data=[], $httpCode=200)
+{
+    $data = [
+        'code'      =>  $code,
+        'message'   =>  $message,
+        'data'      =>  $data,
+    ];
+
+    return json($data, $httpCode);
+}
+
+function get_error_message($word)
+{
+    $code = config('code');
+
+    return isset($code[$word]) ? $code[$word] : '';
+}
