@@ -23,7 +23,7 @@ function api_json($code, $message, $data=[], $httpCode=200)
 
 function get_error_message($word)
 {
-    $code = config('code');
+    $code = config('code.');
 
     return isset($code[$word]) ? $code[$word] : '';
 }

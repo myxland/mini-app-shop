@@ -10,6 +10,8 @@ namespace app\api\model;
 
 class Banner extends Base
 {
+    protected $hidden = ['status', 'create_time', 'update_time', 'delete_time'];
+
     public function items()
     {
         return $this->hasMany('BannerItem', 'banner_id', 'id');
@@ -17,6 +19,6 @@ class Banner extends Base
 
     public function getBannerById($id)
     {
-        return self::with(['items', 'items.img'])->find($id);
+        return self::with(['items', 'items.img'])->where(['status'=>1])->find($id);
     }
 }

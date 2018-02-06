@@ -136,6 +136,6 @@ return [
     'exception_handle'       => '\yunshu\exception\ApiExceptionHandle',
 
     //图片域名配置
-    'img_prefix'=>'http://mini.app/',
+    'img_prefix'=>'http://mini.app',
 
 ];

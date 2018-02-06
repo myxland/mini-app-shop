@@ -32,6 +32,6 @@ class Banner
             throw new MissException('Banner不存在', 40000);
         }
 
-        return api_json(0, $banner);
+        return api_json(EC_OK, get_error_message(EC_OK), $banner);
     }
 }
