@@ -12,6 +12,11 @@ class Banner extends Base
 {
     protected $hidden = ['status', 'create_time', 'update_time', 'delete_time'];
 
+    public static function instance($class = __CLASS__)
+    {
+        return parent::instance($class);
+    }
+
     public function items()
     {
         return $this->hasMany('BannerItem', 'banner_id', 'id');

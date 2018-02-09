@@ -26,7 +26,7 @@ class Banner extends Base
     {
         (new IdPositiveIntegerValidate())->batch()->checkValidate();
 
-        $banner = (new BannerModel())->getBannerById($id);
+        $banner = BannerModel::instance()->getBannerById($id);
         if (! $banner) {
             throw new MissException(get_error_message(EC_BANNER_NOT_FOUND), EC_BANNER_NOT_FOUND);
         }

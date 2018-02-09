@@ -12,6 +12,11 @@ class Image extends Base
 {
     protected $hidden = ['id','status', 'create_time', 'update_time', 'delete_time', 'from'];
 
+    public static function instance($class = __CLASS__)
+    {
+        return parent::instance($class);
+    }
+
     //获取器
     public function getUrlAttr($value, $data)
     {

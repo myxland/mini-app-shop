@@ -12,6 +12,11 @@ class BannerItem extends Base
 {
     protected $hidden = ['id', 'banner_id', 'img_id', 'status', 'create_time', 'update_time', 'delete_time'];
 
+    public static function instance($class = __CLASS__)
+    {
+        return parent::instance($class);
+    }
+
     public function img()
     {
         return $this->belongsTo('Image', 'img_id', 'id');
