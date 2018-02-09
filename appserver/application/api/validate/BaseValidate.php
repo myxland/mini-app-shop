@@ -19,7 +19,7 @@ class BaseValidate extends Validate
         $params = $request->param();
 
         if (! $this->check($params)) {
-            $errorMsg = is_array($this->getError())?implode(',',$this->getError()):$this->getError();
+            $errorMsg = is_array($this->getError()) ? implode(',',$this->getError()) : $this->getError();
 
             throw new ParamException($errorMsg);
         }

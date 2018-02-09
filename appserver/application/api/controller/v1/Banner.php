@@ -24,12 +24,11 @@ class Banner extends Base
      */
     public function getBanner($id)
     {
-        $validate = new IdPositiveIntegerValidate();
-        $validate->checkValidate();
+        (new IdPositiveIntegerValidate())->batch()->checkValidate();
 
         $banner = (new BannerModel())->getBannerById($id);
         if (! $banner) {
-            throw new MissException('Banner不存在', 40000);
+            throw new MissException(get_error_message(EC_BANNER_NOT_FOUND), EC_BANNER_NOT_FOUND);
         }
 
         return api_json(EC_OK, get_error_message(EC_OK), $banner);

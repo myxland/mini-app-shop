@@ -6,7 +6,7 @@
  */
 /**
 0   成功
-99999  未知错误
+999  未知错误
 1 开头为通用错误
 2 商品类错误
 3 主题类错误
@@ -39,12 +39,13 @@
 80003 订单已支付过
  * */
 
-
 define('EC_OK', 0);
-define('EC_UNKNOW_ERROR', 99999);
+define('EC_UNKNOW_ERROR', 999);
 
+define('EC_BANNER_NOT_FOUND', 40000);
 
 return [
     EC_OK   =>  'return successfully!',   //成功
     EC_UNKNOW_ERROR =>  'unknow error!',   //未知错误
+    EC_BANNER_NOT_FOUND=>'banner not found'   //banner找不到
 ];

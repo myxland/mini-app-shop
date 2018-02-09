@@ -9,6 +9,6 @@ namespace yunshu\exception;
 class MissException extends ApiException
 {
     protected $code = 10001;
-    protected $httpCode = 400;
+    protected $httpCode = 404;
     protected $message = 'resources are not found';
 }
