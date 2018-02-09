@@ -9,7 +9,7 @@ namespace app\api\controller\v1;
 
 use app\api\controller\Base;
 use app\api\model\Banner as BannerModel;
-use app\api\validate\IdPositiveIntegerValidate;
+use app\api\validate\IdValidate;
 use think\Exception;
 use yunshu\exception\MissException;
 
@@ -24,7 +24,7 @@ class Banner extends Base
      */
     public function getBanner($id)
     {
-        (new IdPositiveIntegerValidate())->batch()->checkValidate();
+        (new IdValidate())->batch()->checkValidate();
 
         $banner = BannerModel::instance()->getBannerById($id);
         if (! $banner) {

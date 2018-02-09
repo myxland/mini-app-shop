@@ -7,11 +7,13 @@
 
 namespace app\api\validate;
 
-class IdPositiveIntegerValidate extends BaseValidate
+class IdValidate extends BaseValidate
 {
     protected $rule = [
         'id'  =>  'require|isPositiveInteger',
     ];
-
-
+    protected $message = [
+        'id.require' => 'id不能为空',
+        'id.isPositiveInteger' => 'id格式不正确',
+    ];
 }

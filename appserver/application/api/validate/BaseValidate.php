@@ -33,6 +33,24 @@ class BaseValidate extends Validate
             return true;
         }
 
-        return $field . '必须是正整数';
+        return false;
+    }
+
+    protected function isPositiveIntegerAll($value, $rule='', $data='', $field='')
+    {
+        if (strpos($value, ',') === false) {
+            return false;
+        }
+
+        $arr = explode(',', $value);
+        $flag = true;
+        foreach ($arr as $item) {
+           if ($this->isPositiveInteger($item) !== true) {
+                $flag = false;
+               break;
+           }
+        }
+
+        return $flag;
     }
 }
