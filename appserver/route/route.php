@@ -13,6 +13,8 @@ Route::get('api/:ver/banner/:id', 'api/:ver.Banner/getBanner');
 
 Route::get('api/:ver/theme', 'api/:ver.Theme/getList');
 
+Route::get('api/:ver/theme/:id/products', 'api/:ver.Theme/getThemeProducts');
+
 return [
 
 ];

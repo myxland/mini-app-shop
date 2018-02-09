@@ -12,6 +12,7 @@ use think\Model;
 
 class Base extends Model
 {
+    const FROM_LOCAL_IMAGE = 1;
     private static $instances = [];
 
     protected static function instance($class = __CLASS__)
@@ -21,5 +22,15 @@ class Base extends Model
         }
 
         return self::$instances[$class];
+    }
+
+    public function getUrlAttr($value, $data)
+    {
+        $url = $value;
+        if ($data['from'] == self::FROM_LOCAL_IMAGE) {   //本地
+            $url = config('app.img_prefix') . $url;
+        }
+
+        return $url;
     }
 }

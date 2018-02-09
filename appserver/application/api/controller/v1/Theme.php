@@ -10,6 +10,7 @@ namespace app\api\controller\v1;
 use app\api\model\Theme as ThemeModel;
 use app\api\controller\Base;
 use app\api\validate\IdCollectionValidate;
+use app\api\validate\IdValidate;
 use yunshu\exception\MissException;
 
 class Theme extends Base
@@ -34,5 +35,24 @@ class Theme extends Base
         }
 
         return api_json($list);
+    }
+
+    /**
+     * 获得指定主题的产品
+     * @url api/:version/theme/:id
+     * @http GET
+     * @return array
+     */
+    public function getThemeProducts($id)
+    {
+        (new IdValidate())->checkValidate();
+
+        $products = ThemeModel::instance()->getThemeProducts($id);
+
+        if (sizeof($products) == 0) {
+            throw new MissException(get_error_message(EC_THEME_NOT_FOUND), EC_THEME_NOT_FOUND);
+        }
+
+        return api_json($products);
     }
 }
