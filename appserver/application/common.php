@@ -10,8 +10,11 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
-function api_json($code, $message, $data=[], $httpCode=200)
+function api_json($data=[], $code=null, $message=null, $httpCode=200)
 {
+
+    $code = !isset($code) ? EC_OK : $code;
+    $message = !isset($message) ? get_error_message($code) : $message;
     $data = [
         'code'      =>  $code,
         'message'   =>  $message,

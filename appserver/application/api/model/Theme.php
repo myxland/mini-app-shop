@@ -24,4 +24,9 @@ class Theme extends Base
     {
         return $this->belongsTo('Image', 'head_img_id', 'id');
     }
+
+    public function getListByIds($idArray)
+    {
+        return self::with(['topicImage', 'headImage'])->where('')->select($idArray);
+    }
 }

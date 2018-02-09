@@ -38,7 +38,8 @@ class BaseValidate extends Validate
 
     protected function isPositiveIntegerAll($value, $rule='', $data='', $field='')
     {
-        if (strpos($value, ',') === false) {
+        $idArray = explode(',', $value);
+        if (empty($idArray)) {
             return false;
         }
 

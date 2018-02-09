@@ -9,6 +9,7 @@ namespace app\api\controller\v1;
 
 use app\api\controller\Base;
 use app\api\model\Banner as BannerModel;
+use app\api\validate\IdPositiveIntegerValidate;
 use app\api\validate\IdValidate;
 use think\Exception;
 use yunshu\exception\MissException;
@@ -31,6 +32,6 @@ class Banner extends Base
             throw new MissException(get_error_message(EC_BANNER_NOT_FOUND), EC_BANNER_NOT_FOUND);
         }
 
-        return api_json(EC_OK, get_error_message(EC_OK), $banner);
+        return api_json($banner);
     }
 }

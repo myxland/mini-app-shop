@@ -31,6 +31,6 @@ class ApiExceptionHandle extends Handle
             $this->report($e);
         }
 
-        return  api_json($this->code, $this->msg, [], $this->httpCode);
+        return api_json([], $this->code, $this->msg, $this->httpCode);
     }
 }
