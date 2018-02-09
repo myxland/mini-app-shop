@@ -19,7 +19,7 @@ return [
     // 应用地址
     'app_host'               => '',
     // 应用调试模式
-    'app_debug'              => \think\facade\Env::get('app.app_debug'),
+    'app_debug'              => true,
     // 应用Trace
     'app_trace'              => true,
     // 应用模式状态
@@ -137,5 +137,4 @@ return [
 
     //图片域名配置
     'img_prefix'=>'http://mini.app',
-
 ];
