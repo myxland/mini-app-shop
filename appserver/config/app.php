@@ -19,7 +19,7 @@ return [
     // 应用地址
     'app_host'               => '',
     // 应用调试模式
-    'app_debug'              => true,
+    'app_debug'              => \think\facade\Env::get('app.app_debug'),
     // 应用Trace
     'app_trace'              => true,
     // 应用模式状态
