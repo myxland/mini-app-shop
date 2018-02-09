@@ -10,5 +10,18 @@ namespace app\api\model;
 
 class Theme extends Base
 {
+    public static function instance($class = __CLASS__)
+    {
+        return parent::instance($class);
+    }
 
+    public function topicImage()
+    {
+        return $this->belongsTo('Image', 'topic_img_id', 'id');   //在Image表里写$this->hasOne()
+    }
+
+    public function headImage()
+    {
+        return $this->belongsTo('Image', 'head_img_id', 'id');
+    }
 }

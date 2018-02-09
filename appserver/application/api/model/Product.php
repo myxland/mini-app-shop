@@ -10,5 +10,8 @@ namespace app\api\model;
 
 class Product extends Base
 {
-
+    public static function instance($class = __CLASS__)
+    {
+        return parent::instance($class);
+    }
 }
