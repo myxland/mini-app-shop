@@ -7,13 +7,13 @@
 
 namespace app\api\controller\v1;
 
+use app\api\controller\Base;
 use app\api\model\Banner as BannerModel;
 use app\api\validate\IdPositiveIntegerValidate;
 use think\Exception;
-use think\Loader;
 use yunshu\exception\MissException;
 
-class Banner
+class Banner extends Base
 {
     /**
      * 获取指定id的banner信息
