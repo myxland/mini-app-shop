@@ -24,7 +24,7 @@ class Base extends Model
         return self::$instances[$class];
     }
 
-    public function getUrlAttr($value, $data)
+    public function getImageUrl($value, $data)
     {
         $url = $value;
         if ($data['from'] == self::FROM_LOCAL_IMAGE) {   //本地

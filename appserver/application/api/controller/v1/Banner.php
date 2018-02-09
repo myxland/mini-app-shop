@@ -29,7 +29,7 @@ class Banner extends Base
 
         $banner = BannerModel::instance()->getBannerById($id);
         if (! $banner) {
-            throw new MissException(get_error_message(EC_BANNER_NOT_FOUND), EC_BANNER_NOT_FOUND);
+            throw new MissException(EC_BANNER_NOT_FOUND);
         }
 
         return api_json($banner);

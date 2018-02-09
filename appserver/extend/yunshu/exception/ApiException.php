@@ -16,10 +16,10 @@ class ApiException extends Exception
     protected $httpCode;
     protected $message;
 
-    public function __construct($message=null, $code=null, $httpCode=null)
+    public function __construct($code=null, $message=null, $httpCode=null)
     {
         if (isset($message))
-            $this->message = $message;
+            $this->message = isset($code) ? get_error_message($code) : $message;
         if (isset($code))
             $this->code = $code;
         if (isset($httpCode))

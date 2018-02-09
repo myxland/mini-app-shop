@@ -31,7 +31,7 @@ class Theme extends Base
         $list = ThemeModel::instance()->getListByIds($idArray);
 
         if (sizeof($list) == 0) {
-            throw new MissException(get_error_message(EC_THEME_NOT_FOUND), EC_THEME_NOT_FOUND);
+            throw new MissException(EC_THEME_NOT_FOUND);
         }
 
         return api_json($list);
@@ -50,7 +50,7 @@ class Theme extends Base
         $products = ThemeModel::instance()->getThemeProducts($id);
 
         if (sizeof($products) == 0) {
-            throw new MissException(get_error_message(EC_THEME_NOT_FOUND), EC_THEME_NOT_FOUND);
+            throw new MissException(EC_THEME_NOT_FOUND);
         }
 
         return api_json($products);
