@@ -19,7 +19,8 @@ Route::group('api/:ver/theme', function() {
 });
 
 Route::group('api/:ver/product', function() {
-    Route::get(':id', 'api/:ver.Product/getDetail',[],['id'=>'\d+']);
+    Route::get(':id', 'api/:ver.Product/getOne',[],['id'=>'\d+']);
+    Route::post('', 'api/:ver.Product/create');
 });
 
 return [

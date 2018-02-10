@@ -21,10 +21,28 @@ class Product extends Base
      * @return product
      * @throws ProductException
      */
-    public function getDetail($id)
+    public function getOne($id)
     {
         (new IdValidate())->checkValidate();
 
+        $data = ProductModel::instance()->getOne($id);
+
+        if (! $data) {
+            throw new ProductException();
+        }
+
+        return json($data);
+    }
+
+    /**
+     * 添加产品
+     * @url api/:ver/product
+     * @http POST
+     * @return JSON data
+     * @throws ProductException
+     */
+    public function create($id)
+    {
         $data = ProductModel::instance()->getOne($id);
 
         if (! $data) {
