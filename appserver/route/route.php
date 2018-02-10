@@ -18,6 +18,10 @@ Route::group('api/:ver/theme', function() {
     Route::delete(':tid/product/:pid', 'api/:ver.Theme/delThemeProduct');
 });
 
+Route::group('api/:ver/product', function() {
+    Route::get(':id', 'api/:ver.Product/getDetail',[],['id'=>'\d+']);
+});
+
 return [
 
 ];

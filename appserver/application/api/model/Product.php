@@ -22,4 +22,21 @@ class Product extends Base
     {
         return $this->getImageUrl($value, $data);
     }
+
+    public function imgs()
+    {
+        return $this->hasMany('ProductImage', 'product_id', 'id');
+    }
+
+    public function properties()
+    {
+        return $this->hasMany('Product_property', 'product_id', 'id');
+    }
+
+    public function getOne($id)
+    {
+        return self::with(['imgs'=>function($query) {
+            $query->with(['imgUrl'])->order('order', 'asc');
+        }])->with('properties')->where('id', $id)->find();
+    }
 }
