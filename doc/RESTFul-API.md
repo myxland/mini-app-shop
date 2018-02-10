@@ -16,6 +16,7 @@ HTTP动词如下:
 - 200 - get请求成功
 - 201 - post请求成功
 - 202 - put请求成功
+- 204 - 用户删除数据成功
 - 401 - 未授权
 - 403 - 资源被禁止访问
 - 404 - 请求的资源不存在    
@@ -31,3 +32,8 @@ URL语义明确,API要有版本控制
 - 豆瓣API
 
 - GITHUB开发者 API
+
+
+******
+
+RESTful API 设计指南 - 阮一峰 http://www.ruanyifeng.com/blog/2014/05/restful_api

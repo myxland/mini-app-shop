@@ -58,7 +58,7 @@ class Theme extends Base
     }
 
     /**
-     * 获得主题产品
+     * 添加主题产品
      * @url api/:ver/theme/:tid/product/:pid
      * @http POST
      * @return JSON data OR Exception
@@ -67,8 +67,23 @@ class Theme extends Base
     {
         (new ThemeProductValidate())->checkValidate();
 
-        $ret = ThemeModel::instance()->addThemeProduct($tid, $pid);
+        ThemeModel::instance()->addThemeProduct($tid, $pid);
 
-        return api_json([]);
+        return api_json([], EC_OK, 201);
+    }
+
+    /**
+     * 删除主题产品
+     * @url api/:ver/theme/:tid/product/:pid
+     * @http DELETE
+     * @return JSON data OR Exception
+     */
+    public function delThemeProduct($tid, $pid)
+    {
+        (new ThemeProductValidate())->checkValidate();
+
+        ThemeModel::instance()->delThemeProduct($tid, $pid);
+
+        return api_json([], EC_OK, 204);
     }
 }

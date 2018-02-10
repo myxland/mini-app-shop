@@ -63,6 +63,21 @@ class Theme extends Base
         return true;
     }
 
+    public function delThemeProduct($tid, $pid)
+    {
+        $model = $this->checkRelationExist($tid, $pid);
+
+        $theme_product = self::table('theme_product')->where('theme_id', $tid)
+                             ->where('product_id', $pid)->find();
+        if (! $theme_product) {
+            throw new ThemeException(EC_THEME_PRODUCT_NOT_FOUND, get_error_message(EC_THEME_PRODUCT_NOT_FOUND), 404);
+        }
+
+        $model['theme']->products()->detach($pid);
+
+        return true;
+    }
+
     public function checkRelationExist($tid, $pid)
     {
         $theme = self::get($tid);

@@ -17,6 +17,8 @@ Route::get('api/:ver/theme/:id/product', 'api/:ver.Theme/getThemeProducts');
 
 Route::post('api/:ver/theme/:tid/product/:pid', 'api/:ver.Theme/addThemeProduct');
 
+Route::delete('api/:ver/theme/:tid/product/:pid', 'api/:ver.Theme/delThemeProduct');
+
 return [
 
 ];
