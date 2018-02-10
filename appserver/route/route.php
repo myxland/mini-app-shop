@@ -11,13 +11,12 @@
 
 Route::get('api/:ver/banner/:id', 'api/:ver.Banner/getBanner');
 
-Route::get('api/:ver/theme', 'api/:ver.Theme/getList');
-
-Route::get('api/:ver/theme/:id/product', 'api/:ver.Theme/getThemeProducts');
-
-Route::post('api/:ver/theme/:tid/product/:pid', 'api/:ver.Theme/addThemeProduct');
-
-Route::delete('api/:ver/theme/:tid/product/:pid', 'api/:ver.Theme/delThemeProduct');
+Route::group('api/:ver/theme', function() {
+    Route::get('', 'api/:ver.Theme/getList');
+    Route::get(':id/product', 'api/:ver.Theme/getThemeProducts');
+    Route::post(':tid/product/:pid', 'api/:ver.Theme/addThemeProduct');
+    Route::delete(':tid/product/:pid', 'api/:ver.Theme/delThemeProduct');
+});
 
 return [
 
