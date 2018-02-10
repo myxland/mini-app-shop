@@ -8,6 +8,9 @@
 namespace app\api\model;
 
 
+use yunshu\exception\ProductException;
+use yunshu\exception\ThemeException;
+
 class Theme extends Base
 {
     protected $hidden = ['delete_time', 'update_time', 'topic_img_id', 'head_img_id'];
@@ -41,5 +44,39 @@ class Theme extends Base
     public function getThemeProducts($id)
     {
         return self::with(['products', 'headImage', 'topicImage'])->where('id', $id)->select();
+    }
+
+    //向关联表"theme_product"插入数据
+    public function addThemeProduct($tid, $pid)
+    {
+        $model = $this->checkRelationExist($tid, $pid);
+
+        $theme_product = self::table('theme_product')->where('theme_id', $tid)
+                                    ->where('product_id', $pid)->find();
+
+        if ($theme_product) {
+            throw new ThemeException(EC_THEME_PRODUCT_EXIST, get_error_message(EC_THEME_PRODUCT_EXIST), 409);
+        }
+
+        $model['theme']->products()->attach($pid);
+
+        return true;
+    }
+
+    public function checkRelationExist($tid, $pid)
+    {
+        $theme = self::get($tid);
+        if (! $theme) {
+            throw new ThemeException();
+        }
+        $product = self::get($pid);
+        if (! $theme) {
+            throw new ProductException();
+        }
+
+        return [
+            'theme' =>  $theme,
+            'product'   =>  $product
+        ];
     }
 }
