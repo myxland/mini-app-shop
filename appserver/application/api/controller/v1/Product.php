@@ -7,10 +7,10 @@
 
 namespace app\api\controller\v1;
 
-use app\api\model\Product as ProductModel;
+use app\common\model\Product as ProductModel;
 use app\api\controller\Base;
-use app\api\validate\IdValidate;
-use yunshu\exception\ProductException;
+use app\common\validate\IdValidate;
+use app\library\exception\ProductException;
 
 class Product extends Base
 {

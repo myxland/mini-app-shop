@@ -5,12 +5,17 @@
  * description:
  */
 
-namespace app\api\model;
+namespace app\common\model;
 
 
 class ProductImage extends Base
 {
     protected $hidden = ['id', 'img_id', 'product_id', 'delete_time', 'order'];
+
+    public static function instance($class = __CLASS__)
+    {
+        return parent::instance($class);
+    }
 
     public function imgUrl()
     {

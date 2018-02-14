@@ -1,5 +1,5 @@
 <?php
-namespace yunshu\exception;
+namespace app\library\exception;
 
 use think\exception\Handle;
 
@@ -19,7 +19,7 @@ class ApiExceptionHandle extends Handle
     {
         if ($e instanceof ApiException) { //自定义异常
             $this->httpCode = $e->getHttpCode();
-            $this->msg      = $e->getMessage();
+            $this->msg      = $e->getMessage() ? $e->getMessage() : get_error_message($this->code);
             $this->code     = $e->getCode();
         } else {
             if (config('app_debug') == true) {

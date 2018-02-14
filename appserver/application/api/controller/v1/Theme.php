@@ -7,12 +7,12 @@
 
 namespace app\api\controller\v1;
 
-use app\api\model\Theme as ThemeModel;
+use app\common\model\Theme as ThemeModel;
 use app\api\controller\Base;
-use app\api\validate\IdCollectionValidate;
-use app\api\validate\IdValidate;
-use app\api\validate\ThemeProductValidate;
-use yunshu\exception\MissException;
+use app\common\validate\IdCollectionValidate;
+use app\common\validate\IdValidate;
+use app\common\validate\ThemeProductValidate;
+use app\library\exception\MissException;
 
 class Theme extends Base
 {

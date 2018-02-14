@@ -4,7 +4,7 @@
  * createTime: 18/2/6 22:23
  * description:
  */
-namespace yunshu\exception;
+namespace app\library\exception;
 
 class MissException extends ApiException
 {

@@ -5,7 +5,7 @@
  * description:
  */
 
-namespace app\api\validate;
+namespace app\common\validate;
 
 
 class IdCollectionValidate extends BaseValidate

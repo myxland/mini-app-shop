@@ -5,11 +5,11 @@
  * description:
  */
 
-namespace app\api\validate;
+namespace app\common\validate;
 
 use think\facade\Request;
 use think\Validate;
-use yunshu\exception\ParamException;
+use app\library\exception\ParamException;
 
 class BaseValidate extends Validate
 {

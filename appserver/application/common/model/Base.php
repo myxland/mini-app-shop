@@ -5,7 +5,7 @@
  * description:
  */
 
-namespace app\api\model;
+namespace app\common\model;
 
 
 use think\Model;

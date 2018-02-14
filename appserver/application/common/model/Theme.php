@@ -5,11 +5,10 @@
  * description:
  */
 
-namespace app\api\model;
+namespace app\common\model;
 
-
-use yunshu\exception\ProductException;
-use yunshu\exception\ThemeException;
+use app\library\exception\ProductException;
+use app\library\exception\ThemeException;
 
 class Theme extends Base
 {

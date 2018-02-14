@@ -5,10 +5,15 @@
  * description:
  */
 
-namespace app\api\model;
+namespace app\common\model;
 
 
 class ProductProperty extends Base
 {
     protected $hidden = ['id', 'delete_time', 'update_time', 'product_id'];
+
+    public static function instance($class = __CLASS__)
+    {
+        return parent::instance($class);
+    }
 }

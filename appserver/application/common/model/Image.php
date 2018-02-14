@@ -5,7 +5,7 @@
  * description:
  */
 
-namespace app\api\model;
+namespace app\common\model;
 
 
 class Image extends Base

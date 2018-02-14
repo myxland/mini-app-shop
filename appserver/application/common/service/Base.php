@@ -5,7 +5,7 @@
  * description:
  */
 
-namespace app\api\service;
+namespace app\common\service;
 
 
 class Base

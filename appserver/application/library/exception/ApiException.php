@@ -5,7 +5,7 @@
  * description:
  */
 
-namespace yunshu\exception;
+namespace app\library\exception;
 
 
 use think\Exception;

@@ -8,10 +8,10 @@
 namespace app\api\controller\v2;
 
 use app\api\controller\Base;
-use app\api\model\Banner as BannerModel;
-use app\api\validate\IdValidate;
+use app\common\model\Banner as BannerModel;
+use app\common\validate\IdValidate;
 use think\Exception;
-use yunshu\exception\MissException;
+use app\library\exception\MissException;
 
 class Banner extends Base
 {
