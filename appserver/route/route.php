@@ -20,7 +20,7 @@ Route::group('api/:version/theme', function() {
 
 Route::group('api/:version/product', function() {
     Route::get(':id', 'api/:version.Product/getOne',[],['id'=>'\d+']);
-    Route::post('', 'api/:version.Product/create');
+    Route::get('latest', 'api/:version.Product/getLatest');
 });
 
 Route::group('api/:version/category', function() {

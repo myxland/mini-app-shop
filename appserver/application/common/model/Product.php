@@ -39,4 +39,14 @@ class Product extends Base
             $query->with(['imgUrl'])->order('order', 'asc');
         }])->with('properties')->where('id', $id)->find();
     }
+
+    /**
+     * 获取最近新品
+     * @param $count 获取的条数
+     * @return array|\PDOStatement|string|\think\Collection
+     */
+    public function getLastest($count)
+    {
+        return self::limit($count)->order('create_time desc')->select();
+    }
 }
