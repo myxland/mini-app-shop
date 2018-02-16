@@ -73,7 +73,7 @@ class Product extends Base
             throw new ProductException();
         }
 
-        $products = $products->hidden   (['summary']);
+        $products = $products->hidden(['summary']);
         return api_json($products);
     }
 }
