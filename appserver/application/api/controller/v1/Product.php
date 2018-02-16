@@ -57,20 +57,23 @@ class Product extends Base
     }
 
     /**
-     * 添加产品(在后台创建产品)
-     * @url api/:ver/product
-     * @http POST
-     * @return JSON data
-     * @throws ProductException
+     * 获取分类下的产品
+     * @url api/:version/product/by_category
+     * @http GET
+     * @return JSON data  array of products
+     * @throws MissException
      */
-//    public function create($id)
-//    {
-//        $data = ProductModel::instance()->getOne($id);
-//
-//        if (! $data) {
-//            throw new ProductException();
-//        }
-//
-//        return json($data);
-//    }
+    public function getAllByCategoryId($id)
+    {
+        (new IdValidate())->checkValidate();
+
+        $products = ProductModel::instance()->getAllByCategoryId($id);
+
+        if (! $products) {
+            throw new ProductException();
+        }
+
+        $products = $products->hidden   (['summary']);
+        return api_json($products);
+    }
 }

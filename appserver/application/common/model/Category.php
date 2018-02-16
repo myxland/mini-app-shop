@@ -26,9 +26,4 @@ class Category extends Base
     {
         return $this->belongsTo('Image', 'topic_img_id', 'id');
     }
-
-    public function getProductsByCategoryId($id)
-    {
-        return self::with('products')->with('products.imgs')->find($id);
-    }
 }

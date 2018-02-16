@@ -21,11 +21,11 @@ Route::group('api/:version/theme', function() {
 Route::group('api/:version/product', function() {
     Route::get(':id', 'api/:version.Product/getOne',[],['id'=>'\d+']);
     Route::get('latest', 'api/:version.Product/getLatest');
+    Route::get('by_category', 'api/:version.Product/getAllByCategoryId');
 });
 
 Route::group('api/:version/category', function() {
     Route::get('', 'api/:version.Category/getCategories');
-    Route::get(':id/products', 'api/:version.Category/getProductsByCategoryId');
 });
 
 

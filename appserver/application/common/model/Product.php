@@ -49,4 +49,9 @@ class Product extends Base
     {
         return self::limit($count)->order('create_time desc')->select();
     }
+
+    public function getAllByCategoryId($id)
+    {
+        return self::where('category_id', '=', $id)->select();
+    }
 }
