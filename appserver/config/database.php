@@ -17,7 +17,7 @@ return [
     // 服务器地址
     'hostname'        => Env::get('database.host'),
     // 数据库名
-    'database'        => 'mini-app-shop',
+    'database'        => Env::get('database.dbname'),
     // 用户名
     'username'        => Env::get('database.username'),
     // 密码
