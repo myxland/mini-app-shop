@@ -10,7 +10,7 @@ namespace app\common\model;
 
 class Banner extends Base
 {
-    protected $hidden = ['status', 'create_time', 'update_time', 'delete_time'];
+    protected $hidden = ['status', 'create_time', 'update_time'];
 
     public static function instance($class = __CLASS__)
     {

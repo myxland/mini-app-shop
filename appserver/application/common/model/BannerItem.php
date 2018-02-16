@@ -10,7 +10,7 @@ namespace app\common\model;
 
 class BannerItem extends Base
 {
-    protected $hidden = ['id', 'banner_id', 'img_id', 'status', 'create_time', 'update_time', 'delete_time'];
+    protected $hidden = ['id', 'banner_id', 'img_id', 'status', 'create_time', 'update_time'];
 
     public static function instance($class = __CLASS__)
     {

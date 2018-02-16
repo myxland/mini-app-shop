@@ -12,7 +12,7 @@ use app\library\exception\ThemeException;
 
 class Theme extends Base
 {
-    protected $hidden = ['delete_time', 'update_time', 'topic_img_id', 'head_img_id'];
+    protected $hidden = ['update_time', 'topic_img_id', 'head_img_id'];
 
     public static function instance($class = __CLASS__)
     {

@@ -10,7 +10,7 @@ namespace app\common\model;
 
 class Category extends Base
 {
-    protected $hidden = ['update_time', 'delete_time', 'status'];
+    protected $hidden = ['update_time', 'status'];
 
     public static function instance($class = __CLASS__)
     {

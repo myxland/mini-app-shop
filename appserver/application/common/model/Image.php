@@ -10,7 +10,7 @@ namespace app\common\model;
 
 class Image extends Base
 {
-    protected $hidden = ['id','status', 'create_time', 'update_time', 'delete_time', 'from'];
+    protected $hidden = ['id','status', 'create_time', 'update_time', 'from'];
 
     public function getUrlAttr($value, $data)
     {
