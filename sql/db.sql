@@ -20,6 +20,11 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
+CREATE DATABASE `mini_app_shop`;
+
+USE `mini_app_shop`;
+
+
 # Dump of table banner
 # ------------------------------------------------------------
 
