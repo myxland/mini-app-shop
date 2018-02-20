@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "296bd8a1d28e39d56dcd80ce7be249f3",
+    "hash": "21dc92f34e0f8d4a2f32369da8dbe3a7",
+    "content-hash": "b3374c528fb4105b6d3f53e5e315910c",
     "packages": [
         {
             "name": "topthink/framework",
@@ -55,7 +56,7 @@
                 "orm",
                 "thinkphp"
             ],
-            "time": "2018-02-02T05:39:38+00:00"
+            "time": "2018-02-02 05:39:38"
         },
         {
             "name": "topthink/think-installer",
@@ -96,7 +97,46 @@
                     "email": "448901948@qq.com"
                 }
             ],
-            "time": "2017-05-27T06:58:09+00:00"
+            "time": "2017-05-27 06:58:09"
+        },
+        {
+            "name": "topthink/think-migration",
+            "version": "v2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/top-think/think-migration.git",
+                "reference": "70c89850ca29c2eab988c7c3475d1d5331901bb8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/top-think/think-migration/70c89850ca29c2eab988c7c3475d1d5331901bb8.zip",
+                "reference": "70c89850ca29c2eab988c7c3475d1d5331901bb8",
+                "shasum": ""
+            },
+            "require": {
+                "topthink/framework": "5.1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phinx\\": "phinx/src/Phinx",
+                    "think\\migration\\": "src"
+                },
+                "files": [
+                    "src/config.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "yunwuxin",
+                    "email": "448901948@qq.com"
+                }
+            ],
+            "time": "2017-12-31 16:32:22"
         }
     ],
     "packages-dev": [],
