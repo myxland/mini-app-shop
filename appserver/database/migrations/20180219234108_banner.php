@@ -42,6 +42,7 @@ class Banner extends Migrator
 
     public function up()
     {
+
     }
 
     public function down()
