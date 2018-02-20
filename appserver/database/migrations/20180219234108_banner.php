@@ -26,6 +26,17 @@ class Banner extends Migrator
      *
      * Remember to call "create()" or "update()" and NOT "save()" when working
      * with the Table class.
+     *
+        如果你的迁移脚本只会有一下操作
+        createTable（创建表）
+        renameTable（重命名表）
+        addColumn（添加字段）
+        renameColumn（重命名字段）
+        addIndex（添加索引）
+        addForeignKey（添加外键）
+        那么你只需要change方法就可以了，回滚的时候可以自动根据change里的操作来逆向操作，否则需要定义up和down两个方法，来标识迁移和回滚两个具体操作
+        定义了up和down方法后就不要再定义change方法了；
+        在change方法里操作数据表的时候，只能用create()或者是update()来完成；
      */
     public function change()
     {
@@ -38,15 +49,5 @@ class Banner extends Migrator
               ->addColumn('update_time', 'integer',array('limit' => MysqlAdapter::INT_REGULAR, 'comment'=>'修改时间'))
               ->addIndex(array('position'), array('unique' => true))
               ->create();
-    }
-
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-
     }
 }
