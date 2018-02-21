@@ -2,6 +2,7 @@
 namespace app\library\exception;
 
 use think\exception\Handle;
+use think\facade\Log;
 
 /**
  * author: yunshu
@@ -26,9 +27,10 @@ class ApiExceptionHandle extends Handle
                 return parent::render($e);
             }
 
+            $this->report($e);
+
             $this->msg  = "Sorry, we make a mistake.";
             $this->code = EC_UNKNOW_ERROR;   //系统错误
-            $this->report($e);
         }
 
         return api_json([], $this->code, $this->msg, $this->httpCode);

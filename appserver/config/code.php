@@ -42,6 +42,8 @@
 define('EC_OK', 0);
 define('EC_UNKNOW_ERROR', 999);
 
+define('EC_AUTH_CACHE_ERROR', 10005);
+
 define('EC_THEME_NOT_FOUND', 30000);
 define('EC_THEME_PRODUCT_EXIST', 30001);
 define('EC_THEME_PRODUCT_NOT_FOUND', 30002);
@@ -56,4 +58,5 @@ return [
     EC_THEME_PRODUCT_EXIST=>'theme product exist',
     EC_THEME_PRODUCT_NOT_FOUND=>'theme product not found',
     EC_CATEGORY_NOT_FOUND => 'category not found',
+    EC_AUTH_CACHE_ERROR=>'server cache exception',
 ];
