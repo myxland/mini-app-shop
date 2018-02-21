@@ -34,7 +34,7 @@ class UserToken extends Base
         try {
             $response = curl_http_request($this->wechatLoginUrl, []);
 
-            if (empty($res)) {
+            if (empty($response)) {
                 throw new Exception('获取session_key及openid异常');
             }
 

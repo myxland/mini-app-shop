@@ -24,13 +24,14 @@ class ApiExceptionHandle extends Handle
             $this->code     = $e->getCode();
         } else {
             if (config('app_debug') == true) {
-                return parent::render($e);
+                $this->msg = $e->getMessage();
+                $this->code = $e->getCode();
+            } else {
+                $this->msg  = "Sorry, we make a mistake.";
+                $this->code = EC_UNKNOW_ERROR;   //系统错误
             }
 
             $this->report($e);
-
-            $this->msg  = "Sorry, we make a mistake.";
-            $this->code = EC_UNKNOW_ERROR;   //系统错误
         }
 
         return api_json([], $this->code, $this->msg, $this->httpCode);
