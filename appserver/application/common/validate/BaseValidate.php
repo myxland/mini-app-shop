@@ -36,6 +36,15 @@ class BaseValidate extends Validate
         return false;
     }
 
+    protected function isNotEmpty($value, $rule='', $data='', $field='')
+    {
+        if (empty($value)) {
+            return false;
+        }
+
+        return true;
+    }
+
     protected function isPositiveIntegerAll($value, $rule='', $data='', $field='')
     {
         $idArray = explode(',', $value);

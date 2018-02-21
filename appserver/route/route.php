@@ -29,6 +29,11 @@ Route::group('api/:version/category', function() {
 });
 
 
+Route::group('api/:version/token', function() {
+   Route::post('user', 'api/:version.Token/getToken');    //提高安全性,这里获取token使用post方式请求
+});
+
+
 return [
 
 ];
