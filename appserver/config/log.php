@@ -14,9 +14,13 @@
 // +----------------------------------------------------------------------
 return [
     // 日志记录方式，内置 file socket 支持扩展
-    'type'  => 'File',
+    'type'         => 'File',
     // 日志保存目录
-    'path'  => '',
+    'path'         => '',
     // 日志记录级别
-    'level' => ['sql'],
+    'level'        => ['sql', 'error'],
+    'record_trace' => 'true',
+    //apart_level设置后，就会单独生成sql这个类型的日志文件，主日志文件中将不再包含这个级别的日志信息。
+
+    'apart_level'   =>  ['sql', 'error'],
 ];

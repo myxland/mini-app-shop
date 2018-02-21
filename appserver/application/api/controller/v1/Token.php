@@ -21,5 +21,7 @@ class Token extends Base
         $userTokenService = new UserToken($code);
 
         $token = $userTokenService->get();
+
+        return $token;
     }
 }
