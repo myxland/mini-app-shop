@@ -19,7 +19,7 @@ class ApiException extends Exception
     public function __construct($code=null, $message=null, $httpCode=null)
     {
         if (isset($message))
-            $this->message = isset($code) ? get_error_message($code) : $message;
+            $this->message = $message ? $message : (isset($code) ? get_error_message($code) : $message);
         if (isset($code))
             $this->code = $code;
         if (isset($httpCode))

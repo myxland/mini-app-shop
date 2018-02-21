@@ -31,8 +31,8 @@ class UserToken extends Base
     public function get()
     {
         $client = new \GuzzleHttp\Client(['timeout'=>3]);
-        $res = $client->request('GET', $this->loginUrl);
-        if ($res->getStatusCode != 200 || empty($res->getBody())) {
+        $res = $client->request('GET', $this->wechatLoginUrl);
+        if ($res->getStatusCode() != 200 || empty($res->getBody())) {
             throw new Exception('获取session_key及openid异常');
         }
 
@@ -42,7 +42,7 @@ class UserToken extends Base
         } catch (\Exception $e) {
             throw new \Exception('系统错误');
         }
-
+        
         if (array_key_exists('errcode', $responseArr)) {
             throw new WechatException($responseArr['errcode'], $responseArr['errmsg']);
         }

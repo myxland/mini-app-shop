@@ -14,17 +14,12 @@ use app\common\validate\TokenValidate;
 
 class Token extends Base
 {
-    private $userTokenSerivice;
-
-    public function _initialize()
-    {
-        $this->userTokenSerivice = new UserToken();
-    }
-
     public function getToken($code='')
     {
         (new TokenValidate())->checkValidate();
 
-        $token = $this->userTokenSerivice->get($code);
+        $userTokenService = new UserToken($code);
+
+        $token = $userTokenService->get();
     }
 }
