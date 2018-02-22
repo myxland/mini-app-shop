@@ -71,7 +71,7 @@ class UserToken extends Base
         $cacheValue = $wechatResponse;
         $cacheValue['uid'] = $uid;
         $cacheValue['scope'] = Scope::USER;   //缓存接口作用域
-        $token = $this->genToken();
+        $token = self::genToken();
         $value = json_encode($cacheValue);
         $expire = config('secure.token_expire_in');
         $ret = cache($token, $value, $expire);
