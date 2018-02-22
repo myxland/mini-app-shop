@@ -12,6 +12,7 @@ use app\common\model\User;
 use app\library\enum\Scope;
 use app\library\exception\TokenException;
 use app\library\exception\WechatException;
+use app\library\RedisCache;
 use think\Exception;
 
 class UserToken extends Base
@@ -73,7 +74,8 @@ class UserToken extends Base
         $cacheValue['scope'] = Scope::USER;   //缓存接口作用域
         $token = self::genToken();
         $expire = config('secure.token_expire_in');
-        $ret = cache($token, $cacheValue, $expire);
+//        cache($token, $cacheValue, $expire);
+        $ret = RedisCache::getInstance()->hset($token, $cacheValue, $expire);
 
         if (! $ret) {
             throw new TokenException(EC_AUTH_CACHE_ERROR);
@@ -93,7 +95,7 @@ class UserToken extends Base
 
     public static function verifyToken($token)
     {
-        $value = cache($token);
+        $value = RedisCache::getInstance()->hget($token, 'openid');
 
         if (empty($value)) {
             return false;
