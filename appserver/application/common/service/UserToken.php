@@ -9,6 +9,7 @@ namespace app\common\service;
 
 
 use app\common\model\User;
+use app\library\enum\Scope;
 use app\library\exception\TokenException;
 use app\library\exception\WechatException;
 use think\Exception;
@@ -60,15 +61,18 @@ class UserToken extends Base
             $uid = $this->createUser($openid);
         }
 
-        $token = $this->cacheWechatResponse($wechatResponse);
+        $token = $this->cacheWechatResponse($wechatResponse, $uid);
 
         return $token;
     }
 
-    public function cacheWechatResponse($wechatResponse)
+    public function cacheWechatResponse($wechatResponse, $uid)
     {
+        $cacheValue = $wechatResponse;
+        $cacheValue['uid'] = $uid;
+        $cacheValue['scope'] = Scope::User;   //缓存接口作用域
         $token = $this->genToken();
-        $value = json_encode($wechatResponse);
+        $value = json_encode($cacheValue);
         $expire = config('secure.token_expire_in');
         $ret = cache($token, $value, $expire);
 
