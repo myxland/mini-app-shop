@@ -72,9 +72,8 @@ class UserToken extends Base
         $cacheValue['uid'] = $uid;
         $cacheValue['scope'] = Scope::USER;   //缓存接口作用域
         $token = self::genToken();
-        $value = json_encode($cacheValue);
         $expire = config('secure.token_expire_in');
-        $ret = cache($token, $value, $expire);
+        $ret = cache($token, $cacheValue, $expire);
 
         if (! $ret) {
             throw new TokenException(EC_AUTH_CACHE_ERROR);

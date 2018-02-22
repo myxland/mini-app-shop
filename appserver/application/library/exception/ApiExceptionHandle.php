@@ -2,7 +2,6 @@
 namespace app\library\exception;
 
 use think\exception\Handle;
-use think\facade\Log;
 
 /**
  * author: yunshu

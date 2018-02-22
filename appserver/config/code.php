@@ -51,7 +51,7 @@ define('EC_BANNER_NOT_FOUND', 40000);
 define('EC_CATEGORY_NOT_FOUND', 50000);
 
 return [
-    EC_OK   =>  'return successfully!',   //成功
+    EC_OK   =>  'successful',   //成功
     EC_UNKNOW_ERROR =>  'unknow error!',   //未知错误
     EC_BANNER_NOT_FOUND=>'banner not found',   //banner找不到
     EC_THEME_NOT_FOUND=>'theme not found',
