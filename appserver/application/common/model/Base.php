@@ -28,7 +28,7 @@ class Base extends Model
     {
         $url = $value;
         if ($data['from'] == self::FROM_LOCAL_IMAGE) {   //本地
-            $url = config('app.img_prefix') . $url;
+            $url = config('appset.img_prefix') . $url;
         }
 
         return $url;

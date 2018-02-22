@@ -134,7 +134,4 @@ return [
     'show_error_msg'         => false,
     // 异常处理handle类 留空使用 \think\exception\Handle
     'exception_handle'       => '\app\library\exception\ApiExceptionHandle',
-
-    //图片域名配置
-    'img_prefix'=>'http://mini.app',
 ];
