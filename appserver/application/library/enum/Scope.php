@@ -9,5 +9,5 @@ namespace app\library\enum;
 
 class Scope
 {
-    const User = 16;
+    const USER = 16;
 }
