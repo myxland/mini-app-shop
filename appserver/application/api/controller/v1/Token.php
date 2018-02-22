@@ -25,7 +25,10 @@ class Token extends Base
 
         $token = $userTokenService->get();
 
-        return api_json($token);
+        $ret = [
+            'token' =>  $token,
+        ];
+        return api_json($ret);
     }
 
     public function verifyToken($token='')
