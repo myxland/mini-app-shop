@@ -21,7 +21,7 @@ class RedisCache
         $this->handler = $cache->handler();
     }
 
-    public static function getInstance()
+    public static function instance()
     {
         if (! self::$instance) {
             self::$instance = new self();
@@ -45,6 +45,10 @@ class RedisCache
 
     public function hget($key, $field)
     {
+        if (! $this->handler->exists($key)) {
+            return null;
+        }
+
         return $this->handler->hget($key, $field);
     }
 }

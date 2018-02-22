@@ -74,8 +74,8 @@ class UserToken extends Base
         $cacheValue['scope'] = Scope::USER;   //缓存接口作用域
         $token = self::genToken();
         $expire = config('secure.token_expire_in');
-//        cache($token, $cacheValue, $expire);
-        $ret = RedisCache::getInstance()->hset($token, $cacheValue, $expire);
+
+        $ret = RedisCache::instance()->hset($token, $cacheValue, $expire);
 
         if (! $ret) {
             throw new TokenException(EC_AUTH_CACHE_ERROR);
@@ -95,7 +95,7 @@ class UserToken extends Base
 
     public static function verifyToken($token)
     {
-        $value = RedisCache::getInstance()->hget($token, 'openid');
+        $value = RedisCache::instance()->hget($token, 'openid');
 
         if (empty($value)) {
             return false;
