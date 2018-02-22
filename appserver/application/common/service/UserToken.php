@@ -88,5 +88,14 @@ class UserToken extends Base
         return $user->id;
     }
 
+    public static function verifyToken($token)
+    {
+        $value = cache($token);
 
+        if (empty($value)) {
+            return false;
+        }
+
+        return true;
+    }
 }
