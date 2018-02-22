@@ -24,7 +24,7 @@ class Token extends Base
         return md5($randChar . $timestamp . $tokenSalt);
     }
 
-    public static function getValueByToken($token)
+    public static function getValueByToken($token, $field)
     {
         $cacheValue = RedisCache::instance()->has($token);
 
@@ -32,7 +32,7 @@ class Token extends Base
             throw new TokenException();
         }
 
-        $ret = RedisCache::instance()->hget($token, $token);
+        $ret = RedisCache::instance()->hget($token, $field);
 
         if (! $ret) {
             throw new Exception('尝试获取的token变量不存在');
@@ -43,6 +43,6 @@ class Token extends Base
 
     public static function getUidByToken($token)
     {
-        return self::getValueByToken($token);
+        return self::getValueByToken($token, 'uid');
     }
 }
