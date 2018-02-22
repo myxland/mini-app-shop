@@ -79,7 +79,7 @@ class BaseValidate extends Validate
     public function getDataByRule($data)
     {
         $ret = array();
-        if (array_key_exists('user_id', $data)) {
+        if (array_key_exists('user_id', $data) || array_key_exists('uid', $data)) {
             throw new ParamException();
         }
 
