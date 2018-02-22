@@ -18,7 +18,7 @@ class BaseValidate extends Validate
         $request = Request::instance();
         $params = $request->param();
 
-        if (! $this->check($params)) {
+        if (! $this->batch()->check($params)) {
             $errorMsg = is_array($this->getError()) ? implode(',',$this->getError()) : $this->getError();
 
             throw new ParamException($errorMsg);

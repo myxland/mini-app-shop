@@ -7,7 +7,6 @@
 
 namespace app\api\controller\v1;
 
-
 use app\api\controller\Base;
 use app\common\model\User;
 use app\common\service\Token as TokenService;
