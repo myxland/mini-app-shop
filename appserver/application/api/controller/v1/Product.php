@@ -53,7 +53,7 @@ class Product extends Base
             throw new ProductException();
         }
 
-        return json($data);
+        return api_json($data);
     }
 
     /**

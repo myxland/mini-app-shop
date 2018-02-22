@@ -37,7 +37,7 @@ class Product extends Base
     {
         return self::with(['imgs'=>function($query) {
             $query->with(['imgUrl'])->order('order', 'asc');
-        }])->with('properties')->where('id', $id)->find();
+        }])->with('properties')->find($id);
     }
 
     /**

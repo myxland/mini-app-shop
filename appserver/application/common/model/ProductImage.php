@@ -10,7 +10,7 @@ namespace app\common\model;
 
 class ProductImage extends Base
 {
-    protected $hidden = ['id', 'img_id', 'product_id', 'order'];
+    protected $hidden = ['id', 'img_id', 'product_id', 'order', 'create_time'];
 
     public static function instance($class = __CLASS__)
     {

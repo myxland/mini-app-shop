@@ -10,7 +10,7 @@ namespace app\common\model;
 
 class ProductProperty extends Base
 {
-    protected $hidden = ['id', 'update_time', 'product_id'];
+    protected $hidden = ['id', 'update_time', 'product_id', 'create_time'];
 
     public static function instance($class = __CLASS__)
     {
