@@ -15,7 +15,7 @@ use app\library\exception\WechatException;
 use app\library\RedisCache;
 use think\Exception;
 
-class UserToken extends Base
+class UserToken extends Token
 {
     protected $code;
     protected $appId;
@@ -95,7 +95,7 @@ class UserToken extends Base
 
     public static function verifyToken($token)
     {
-        $value = RedisCache::instance()->hget($token, 'openid');
+        $value = RedisCache::instance()->has($token);
 
         if (empty($value)) {
             return false;

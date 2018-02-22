@@ -19,6 +19,7 @@ class BannerItem extends Base
 
     public function img()
     {
+        //外键img_id在banner_item表,使用belongsTo
         return $this->belongsTo('Image', 'img_id', 'id');
     }
 }

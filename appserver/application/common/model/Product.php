@@ -36,7 +36,7 @@ class Product extends Base
     public function getOne($id)
     {
         return self::with(['imgs'=>function($query) {
-            $query->with(['imgUrl'])->order('order', 'asc');
+            $query->with(['imgUrl'])->order('order', 'asc');   //按product_image表的order字段排序
         }])->with('properties')->find($id);
     }
 

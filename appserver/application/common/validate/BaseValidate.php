@@ -45,6 +45,18 @@ class BaseValidate extends Validate
         return true;
     }
 
+    protected function isMobile($value, $rule='', $data='', $field='')
+    {
+        $rule = '^1(3|4|5|7|8)\d{8}$';
+        $result = preg_match($rule, $value);
+
+        if ($result) {
+            return true;
+        }
+
+        return false;
+    }
+
     protected function isPositiveIntegerAll($value, $rule='', $data='', $field='')
     {
         $idArray = explode(',', $value);
@@ -62,5 +74,19 @@ class BaseValidate extends Validate
         }
 
         return $flag;
+    }
+
+    public function getDataByRule($data)
+    {
+        $ret = array();
+        if (array_key_exists('user_id', $data)) {
+            throw new ParamException();
+        }
+
+        foreach ($this->rule as $k=>$v) {
+            $ret[$k] = $data[$k];
+        }
+
+        return $ret;
     }
 }

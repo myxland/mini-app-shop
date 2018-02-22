@@ -33,6 +33,10 @@ Route::group('api/:version/token', function() {
    Route::post('verify', 'api/:version.Token/verifyToken');
 });
 
+Route::group('api/:version/address', function() {
+    Route::post('', 'api/:version.Address/createOrUpdateAddress');
+    Route::put('', 'api/:version.Address/createOrUpdateAddress');
+});
 
 return [
 

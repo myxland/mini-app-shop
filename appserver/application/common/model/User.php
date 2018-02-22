@@ -19,4 +19,9 @@ class User extends Base
     {
         return self::where('openid', '=', $openid)->find();
     }
+
+    public function address()
+    {
+        return $this->hasOne('UserAddress', 'user_id', 'id');
+    }
 }

@@ -45,10 +45,15 @@ class RedisCache
 
     public function hget($key, $field)
     {
-        if (! $this->handler->exists($key)) {
+        if (! $this->has($key)) {
             return null;
         }
 
         return $this->handler->hget($key, $field);
+    }
+
+    public function has($key)
+    {
+        return $this->handler->exists($key);
     }
 }
