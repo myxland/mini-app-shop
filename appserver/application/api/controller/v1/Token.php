@@ -22,6 +22,6 @@ class Token extends Base
 
         $token = $userTokenService->get();
 
-        return $token;
+        return api_json($token);
     }
 }
