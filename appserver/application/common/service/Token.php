@@ -8,9 +8,11 @@
 namespace app\common\service;
 
 
+use app\library\enum\Scope;
 use app\library\exception\TokenException;
 use app\library\RedisCache;
 use think\Exception;
+use think\facade\Request;
 
 class Token extends Base
 {
@@ -44,5 +46,34 @@ class Token extends Base
     public static function getUidByToken($token)
     {
         return self::getValueByToken($token, 'uid');
+    }
+
+    public static function checkPrimaryScope()
+    {
+        $token = Request::instance()->header('token');
+        $scope = self::getValueByToken($token, 'scope');
+
+        if (! $scope) {
+            throw new TokenException();
+        } elseif ($scope < Scope::USER) {
+            throw new ForbiddenException();
+        }
+
+        return true;
+    }
+
+    //只有用户本身有接口权限
+    public static function checkExclusiveScope()
+    {
+        $token = Request::instance()->header('token');
+        $scope = self::getValueByToken($token, 'scope');
+
+        if (! $scope) {
+            throw new TokenException();
+        } elseif ($scope != Scope::USER) {
+            throw new ForbiddenException();
+        }
+
+        return true;
     }
 }

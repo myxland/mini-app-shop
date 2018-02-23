@@ -1,4 +1,3 @@
-
 <?php
 /**
  * author: yunshu
@@ -7,7 +6,6 @@
  */
 
 namespace app\library\exception;
-
 
 class UserException extends ApiException
 {

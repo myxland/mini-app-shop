@@ -10,6 +10,8 @@ namespace app\common\model;
 
 class User extends Base
 {
+    protected $autoWriteTimestamp = true;
+
     public static function instance($class = __CLASS__)
     {
         return parent::instance($class);

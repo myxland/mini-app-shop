@@ -49,6 +49,7 @@ define('EC_THEME_PRODUCT_EXIST', 30001);
 define('EC_THEME_PRODUCT_NOT_FOUND', 30002);
 define('EC_BANNER_NOT_FOUND', 40000);
 define('EC_CATEGORY_NOT_FOUND', 50000);
+define('EC_USER_ADDR_NOT_FOUND', 60001);
 
 return [
     EC_OK   =>  'successful',   //成功
@@ -59,4 +60,5 @@ return [
     EC_THEME_PRODUCT_NOT_FOUND=>'theme product not found',
     EC_CATEGORY_NOT_FOUND => 'category not found',
     EC_AUTH_CACHE_ERROR=>'server cache exception',
+    EC_USER_ADDR_NOT_FOUND=>'user address not found', //用户地址不存在
 ];

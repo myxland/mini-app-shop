@@ -18,7 +18,7 @@ use think\facade\Request;
 class Address extends Base
 {
     protected $beforeActionList = [
-        'checkUserScope'    =>  ['only'=>'createOrUpdateAddress'],
+        'checkPrimaryScope'    =>  ['only'=>'createOrUpdateAddress'],
     ];
 
     public function createOrUpdateAddress()

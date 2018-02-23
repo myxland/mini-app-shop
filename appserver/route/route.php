@@ -38,6 +38,12 @@ Route::group('api/:version/address', function() {
     Route::put('', 'api/:version.Address/createOrUpdateAddress');
 });
 
+
+//订单接口
+Route::group('api/:version/order', function() {
+    Route::post('', 'api/:version.Order/placeOrder');
+});
+
 return [
 
 ];
