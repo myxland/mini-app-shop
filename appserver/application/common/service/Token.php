@@ -38,7 +38,7 @@ class Token extends Base
             throw new Exception('尝试获取的token变量不存在');
         }
 
-        return $cacheValue;
+        return $ret;
     }
 
     public static function getUidByToken($token)
