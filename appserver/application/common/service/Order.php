@@ -7,6 +7,7 @@ use app\common\model\UserAddress;
 use app\common\model\OrderProduct;
 use app\library\exception\OrderException;
 use app\library\exception\UserException;
+use think\Db;
 use think\Exception;
 
 
@@ -121,10 +122,9 @@ class Order extends Base
         return $userAddress->toArray();
     }
 
-    // 创建订单时没有预扣除库存量，简化处理
-    // 如果预扣除了库存量需要队列支持，且需要使用锁机制
     private function createOrder($snap)
     {
+        Db::startTrans();
         try {
             $orderNo = $this->makeOrderNo();
             $order = new OrderModel();
@@ -146,6 +146,7 @@ class Order extends Base
             }
             $orderProduct = new OrderProduct();
             $orderProduct->saveAll($this->oProducts);
+            Db::commit();
 
             return [
                 'order_no' => $orderNo,
@@ -153,6 +154,7 @@ class Order extends Base
                 'create_time' => $create_time
             ];
         } catch (Exception $e) {
+            Db::rollback();
             throw $e;
         }
     }
